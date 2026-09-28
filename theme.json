@@ -1,0 +1,8 @@
+{
+    "name": "MacSequoia Window Buttons",
+    "description": "Draws the window buttons as the traffic lights of the MacSequoia-Dark KWin decoration",
+    "homepage": "https://github.com/iankamin/zen-macsequoia-buttons",
+    "author": "Ian Kaminer",
+    "version": "2.0.0",
+    "tags": ["kde", "aurorae", "macsequoia", "window-controls"]
+}
