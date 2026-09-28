@@ -25,6 +25,11 @@ def find_path(root,target):
             r=rec(ch,chain+[ch]); 
             if r: return r
     return rec(root,[root])
+def is_glyph(el):
+    st=el.get('style','')
+    fill=re.search(r'(?<![-a-z])fill:([^;]+)',st)
+    op=re.search(r'(?<![-a-z])opacity:([^;]+)',st)
+    return bool(fill and fill.group(1)=='#000000' and op and float(op.group(1))==0.5)
 states={'active-center':'normal','inactive-center':'inactive','hover-center':'hover','pressed-center':'pressed','hover-inactive-center':'hover-inactive'}
 for btn in ['close','minimize','maximize','restore']:
     tree=ET.parse(SRC+btn+'.svg'); root=tree.getroot()
@@ -52,3 +57,13 @@ for btn in ['close','minimize','maximize','restore']:
         s=re.sub(r'\s+',' ',s)
         open(os.path.join(OUT,f'{btn}-{st}.svg'),'w').write(s)
         print(btn,st,len(s))
+        if st=='hover':
+            # The glyph on its own: drop the coloured circle and the invisible
+            # sizing rect, keeping only the 50%-black symbol shapes
+            parents={ch:p for p in gc.iter() for ch in p}
+            for el in list(gc.iter()):
+                if el.tag.split('}')[1] in ('path','rect','circle') and not is_glyph(el):
+                    parents[el].remove(el)
+            s=re.sub(r'\s+',' ',ET.tostring(out,encoding='unicode'))
+            open(os.path.join(OUT,f'{btn}-glyph.svg'),'w').write(s)
+            print(btn,'glyph',len(s))

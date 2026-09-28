@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "property": "mod.macsequoia.close_color",
+        "label": "Close button colour",
+        "type": "string",
+        "placeholder": "#e9524a (theme default)"
+    },
+    {
+        "property": "mod.macsequoia.minimize_color",
+        "label": "Minimize button colour",
+        "type": "string",
+        "placeholder": "#f1ae1b (theme default)"
+    },
+    {
+        "property": "mod.macsequoia.maximize_color",
+        "label": "Maximize button colour",
+        "type": "string",
+        "placeholder": "#59c837 (theme default)"
+    },
+    {
+        "property": "mod.macsequoia.inactive_color",
+        "label": "Button colour when the window is inactive",
+        "type": "string",
+        "placeholder": "#5d5d5d (theme default)"
+    }
+]

@@ -9,14 +9,28 @@ your Plasma desktop.
   pointer, and the circle darkens while pressed
 - All three turn grey when the window loses focus
 
-The button artwork is taken from the theme's own SVGs, one image per state.
-Which side the buttons sit on still follows your KWin button layout.
+The symbols are taken from the theme's own SVGs. Which side the buttons sit
+on still follows your KWin button layout.
+
+## Options
+
+Each colour accepts any CSS colour (`#ff5f57`, `rgb(255 95 87)`, `tomato`).
+Leave a field empty to use the theme's colour.
+
+- **Close button colour**: default `#e9524a`
+- **Minimize button colour**: default `#f1ae1b`
+- **Maximize button colour**: default `#59c837`, also used for restore
+- **Button colour when the window is inactive**: default `#5d5d5d`
+
+These settings only appear when the mod is installed through Zen's Mods
+page. If you use `chrome.css` as your `userChrome.css` instead, change the
+fallback colours near the top of the file.
 
 ## Regenerating
 
 If the theme is updated, run `tools/extract.py` and then `tools/gen.py`. They
 read `~/.local/share/aurorae/themes/MacSequoia-Dark/` and rewrite
-`chrome.css`. `tools/` isn't needed by Zen.
+`chrome.css` and `preferences.json`. `tools/` isn't needed by Zen.
 
 ## Notes
 
